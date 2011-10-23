@@ -47,8 +47,8 @@ a:focus, a:hover {
   z-index: 50;
   top: 3px;
   left: 40px;
-  right: 120px;
-  opacity: 0.8;
+  right: 80px;
+  opacity: 0.9;
 }
 #navigation form {
   background-color: #fff;
@@ -64,12 +64,13 @@ a:focus, a:hover {
   float: right;
   font-size: 80%;
   margin-top: 10px;
+  opacity: 0.9;
 }
 #navigation ul li {
-  float: left;
   list-style-type: none;
 }
 #navigation ul li a {
+  display: block;
   padding: 4px 8px 4px 4px;
 }
 
