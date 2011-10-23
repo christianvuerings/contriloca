@@ -9,6 +9,8 @@
 // We use a self executing function to avoid global variables
 var contriloca = (function () {
 
+  dojo.require("dojo.io.script");
+
   var config = {
     contributors: {},
     geocoder: "",
@@ -88,28 +90,30 @@ var contriloca = (function () {
   getcontributors = function() {
 
     // We first get all the contributors for the given project
-    dojo.xhrGet({
+    dojo.io.script.get({
       url: config.url.contributors.replace("${project}", config.project),
-      handleAs: "json"
-    }).then(function(res){
-      
-      // Then we load extra information (e.g. location) for each user
-      dojo.forEach(res, function(entry, i){
+      callbackParamName: "callback",
+      load: function(res){
 
-        // We want to be able to access each user through the
-        // config.contributors variable. (e.g. config.contributors.denbuzze)
-        config.contributors[entry.login] = entry;
-        dojo.xhrGet({
+        // Then we load extra information (e.g. location) for each user
+        dojo.forEach(res.data, function(entry, i){
+
+          // We want to be able to access each user through the
+          // config.contributors variable. (e.g. config.contributors.denbuzze)
+          config.contributors[entry.login] = entry;
+          dojo.io.script.get({
             url: config.url.users.replace("${user}", entry.login),
-            handleAs: "json"
-        }).then(function(res){
+            callbackParamName: "callback",
+            load: function(res){
           
-          // If everything was successful we extend the information for each
-          // user with the extra information (e.g. location)
-          dojo.mixin(config.contributors[res.login], res);
-          addtomap(res.login);
-        });
-      })
+              // If everything was successful we extend the information for
+              // each user with the extra information (e.g. location)
+              dojo.mixin(config.contributors[res.data.login], res.data);
+              addtomap(res.data.login);
+            }
+          });
+        })
+      }
     });
   },
 
