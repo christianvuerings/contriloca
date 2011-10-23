@@ -123,6 +123,10 @@ var contriloca = (function () {
    */
   load = function(inputconfig) {
 
+    // Clear previous attributes of the config
+    config.contributors = {};
+    config.project = "";
+
     // Extend the global config with the passed in inputconfig
     dojo.mixin(config, inputconfig);
 

@@ -7,7 +7,7 @@ Lovingly crafted by [@denbuzze][twitter_denbuzze].
 [![Follow us on twitter](http://f.cl.ly/items/2z1p0w320g1q0T061m1u/twitter_follow.png)][twitter_denbuzze]
 
 ## Confessions from the author
-* It's the first time I've every used [dojo] in a real life project.
+* It's the first time I've used [dojo] in a real life project.
 * I hope people will show me ways how to make my code better.
 * I don't like cats.
 
@@ -30,7 +30,7 @@ Lovingly crafted by [@denbuzze][twitter_denbuzze].
 for (var i = 0, j = length; i < j; i++) {
 
 ## API Usage
-The contriloca project uses the following api's:
+The contriloca project uses the following APIs:
 
 * [Google Maps JavaScript API](http://code.google.com/apis/maps/documentation/javascript/)
 * [Github API v3](http://developer.github.com/v3/)
