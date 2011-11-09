@@ -44,7 +44,7 @@ a:focus, a:hover {
 
 #navigation {
   position: absolute;
-  z-index: 50;
+  z-index: 1;
   top: 3px;
   left: 40px;
   right: 80px;
@@ -59,17 +59,22 @@ a:focus, a:hover {
   padding: 2px 0;
   width: 100%;
 }
-#navigation ul {
+#navigation_second {
+  position: absolute;
+  z-index: 2;
+  top: 30px;
+  right: 80px;
+  opacity: 0.9;
   background-color: #fff;
   float: right;
   font-size: 80%;
   margin-top: 10px;
   opacity: 0.9;
 }
-#navigation ul li {
+#navigation_second li {
   list-style-type: none;
 }
-#navigation ul li a {
+#navigation_second li a {
   display: block;
   padding: 4px 8px 4px 4px;
 }
